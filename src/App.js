@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import First from "./First";
 function App() {
+  const [setValue,updateSetValue] = useState(true)
+  const [setCount,updateSetCout] = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {setValue?<First currentNumber={setCount}/>:""}
+      <h1>Props: {setCount}</h1>
+      <button onClick={()=>updateSetCout(setCount+1)}>Click</button>
+      <br></br>
+      <div style={{marginTop: "20px"}}></div>
+      <button onClick={()=>updateSetValue(true)}>True</button>
+      <button onClick={()=>updateSetValue(false)}>false</button>
+      
+    </>
   );
 }
 
