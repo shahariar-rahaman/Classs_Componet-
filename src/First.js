@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,createRef } from 'react'
 
 export default class First extends Component {
     constructor(){
@@ -7,9 +7,11 @@ export default class First extends Component {
             count:0,
             render: ""
         }
+        this.inputRef = createRef()
         console.log("Constructor")
     }
     componentDidMount(){
+        this.inputRef.current.style.color = "red"
         console.log("From Component Did Mount")
     }
     componentDidUpdate(prevProps, prevState, snapshot){
@@ -36,7 +38,7 @@ export default class First extends Component {
       <>
       <div>{this.state.render}</div>
       {console.log('From Render')}
-      <h1>State: {this.state.count}</h1>
+      <h1 ref={this.inputRef}>State: {this.state.count}</h1>
       <button onClick={()=> this.setState({count:this.state.count+1,render:this.state.render+"Render"})}>Click</button>
       </>
     )
