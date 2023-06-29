@@ -19,6 +19,9 @@ export default class First extends Component {
         
         console.log(`Snapshot ${snapshot}`)
     }
+    componentWillUnmount(){
+        console.log("Componet Will Unmount")
+    }
     getSnapshotBeforeUpdate(){
         console.log("Get Snapshot Before Update")
         return this.state.count
@@ -27,9 +30,7 @@ export default class First extends Component {
         console.log("Should Component Update")
         return true
     }
-    componentWillUnmount(){
-        console.log("Componet Will Unmount")
-    }
+
   render() {
     return (
       <>
